@@ -1,18 +1,35 @@
 <div class="item-wrapper one">
     <div class="item">
-            <div class="item-inner">
-                <div class="item-content">
-                    <div class="image-upload"> <label style="cursor: pointer;" for="file_upload"> <img src="" alt="" class="uploaded-image">
-                            <div class="h-100">
-                                <div class="dplay-tbl">
-                                    <div class="dplay-tbl-cell"> <i class="bi bi-cloud-arrow-up"></i>
-                                        <h5><b>Upload Geotiff files here</b></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" multiple value="">
-                        </label> </div>
+        <div class="item-inner">
+            <div class="item-content">
+                <div class="tiff-upload">
+                    <p>Upload Geotiff files here</p>
+                    <input type="file" multiple (change)="selectFiles($event)" />
                 </div>
+
+                <div *ngIf = "progressInfo!=100" class="pb-4">
+                    <button class="btn btn-secondary btn-sm" [hidden]="!selectedFiles" (click)="uploadFiles(); clicked=true" [disabled] = "clicked" >
+                        Upload
+                     </button>
+                </div>
+
+                <div *ngIf="progressInfo>0" class="py-4">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped text-white" role="progressbar"
+                            attr.aria-valuenow="{{ progressInfo }}" aria-valuemin="0" aria-valuemax="100"
+                            [ngStyle]="{ width: progressInfo + '%' }">
+                            {{ progressInfo }}%
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="showLoadFileBtn">
+                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click)="loadGeotiff()">
+                        Load Geotiff
+                    </button>
+                </div>
+
             </div>
+        </div>
     </div>
 </div>

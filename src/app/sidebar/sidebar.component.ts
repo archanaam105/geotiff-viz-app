@@ -10,7 +10,6 @@ export class SidebarComponent{
 
 
   constructor(public route:ActivatedRoute){
-    console.log(route.children);
   }
  
 }

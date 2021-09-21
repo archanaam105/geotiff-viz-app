@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MapComponent } from './map/map.component';
 import { UploadGeotiffComponent } from './upload-geotiff/upload-geotiff.component';
 
-const routes : Routes = [
-  {path:'uploadGeotiff', component: UploadGeotiffComponent}
+const routes: Routes = [
+  { path: 'uploadGeotiff', component: UploadGeotiffComponent }
 ]
 
 @NgModule({

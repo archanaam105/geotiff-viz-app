@@ -24,12 +24,12 @@
                 </div>
 
                 <div *ngIf="showLoadFileBtn">
-                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click)="loadGeotiff()">
+                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click)="loadGeotiff()" routerLink="/editViz">
                         Load Geotiff
                     </button>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

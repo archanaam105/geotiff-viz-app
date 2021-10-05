@@ -15,9 +15,9 @@ export class AwsLambdaService {
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: this.identityPoolId
     });
-    console.log('CREATING LAMBDA SERVICE!');
+    // console.log('CREATING LAMBDA SERVICE!');
     this.lambdaService = new AWS.Lambda(AWS.config);
-    console.log(this.lambdaService);
+    // console.log(this.lambdaService);
   }
 
   public async invokeLambda(functionName: string, functionArgs: any) {

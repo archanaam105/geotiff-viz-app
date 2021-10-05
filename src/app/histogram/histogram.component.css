@@ -1,0 +1,23 @@
+#sidebar{
+    background-color: #f8f8f9;
+}
+
+.item .item-content {
+    padding: 20px 20px
+}
+
+.histogram{
+    padding-bottom: 20px;
+}
+
+.item-wrapper input {
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+
+
+

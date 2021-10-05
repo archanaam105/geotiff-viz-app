@@ -1,0 +1,63 @@
+<div>
+    <svg height="100">
+        <style>
+            .legendTitle {
+                fill: white;
+            }
+
+            .label {
+                fill: white
+            }
+        </style>
+    </svg>
+    <div class="slidecontainer px-4 pb-4">
+        <span class="text-white"> Opacity</span>
+        <input type="range" min="0" max="1" step="0.1" value="1" (change)="changeOpacity($event)">
+    </div>
+    <div class="px-4">
+        <span class="text-white">Change color palette</span><br>
+        <table style="margin-top: 20px;">
+            <tr>
+                <td style="padding-right: 60px;">
+                    <input type="radio" name= "color" value="inferno" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/inferno.png" width="80%" height="15" alt="inferno" style="max-width: 100%;">
+                </td>
+                <td >
+                    <input type="radio" name= "color"  value="virdis" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/viridis.png" width="80%" height="15" alt="virdis" style="max-width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 60px;">
+                    <input type="radio" name= "color" value="turbo" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/turbo.png" width="80%" height="15" alt="turbo" style="max-width: 100%;">
+                </td>
+                <td>
+                    <input type="radio" name= "color" value="magma" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/magma.png" width="80%" height="15" alt="magma" style="max-width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 60px;">
+                    <input type="radio" name= "color" value="plasma" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/plasma.png" width="80%" height="15" alt="plasma" style="max-width: 100%;">
+                </td>
+                <td>
+                    <input type="radio" name= "color" value="cividis" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/cividis.png" width="80%" height="15" alt="cividis" style="max-width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td  style="padding-right: 60px;">
+                    <input type="radio" name= "color" value="warm" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/warm.png" width="80%" height="15" alt="warm" style="max-width: 100%;">
+                </td>
+                <td>
+                    <input type="radio" name= "color" value="cool" (change)="changeColor($event)">
+                    <img src= "../../assets/images/legend/cool.png" width="80%" height="15" alt="cool" style="max-width: 100%;">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

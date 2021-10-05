@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,5 +12,6 @@ export class SidebarComponent{
 
   constructor(public route:ActivatedRoute){
   }
+
  
 }

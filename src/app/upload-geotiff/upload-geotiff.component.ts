@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UploadGeotiffService } from './upload-geotiff.service';
 import { AwsLambdaService } from '../common/aws-lambda.service';
-import { Subject } from 'rxjs';
 
 
 @Component({
@@ -29,9 +28,8 @@ export class UploadGeotiffComponent {
 
   async upload(idx: number, file: File, progress:number){
     if (file) {
-      const response = await this.uploadService.uploadFile(file);
+      //const response = await this.uploadService.uploadFile(file); commented for testing
       this.progressInfo = Math.min(this.progressInfo + progress,100); 
-      console.log(response);
     }
   }
 
@@ -41,21 +39,19 @@ export class UploadGeotiffComponent {
       for (let i = 0; i < this.selectedFiles.length; i++) {
         const res = await this.upload(i, this.selectedFiles[i], progress);
       }
-      console.log("test")
-      this.showLoadFileBtn = true;
-      this.invokeLambda();
+      //this.invokeLambda();// commented for testing
+      this.showLoadFileBtn = true;// uncomment during commit
     }
   }
 
   invokeLambda() {
-    console.log("invoke lambda")
      const request = {
          bucket : this.bucketName
      }
      this.lambdaService.invokeLambda(this.lambdaName, request).then(res=>{
        if(res.StatusCode===200){  
-           this.tiffUrl = JSON.parse(JSON.stringify(res.Payload)).replaceAll('"',"");
-           console.log(this.tiffUrl);
+           //this.tiffUrl = JSON.parse(JSON.stringify(res.Payload)).replaceAll('"',"");
+           this.showLoadFileBtn = true;
        }else{
          // throw error
        }

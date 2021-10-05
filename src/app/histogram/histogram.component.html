@@ -1,0 +1,32 @@
+
+<div class="item-wrapper one">
+    <div class="item">
+        <div class="item-inner">
+            <div class="item-content">
+                <div class="histogram">
+                    <p class="pb-2">Draw a geometry on the loaded geotiff</p>
+               
+                <div class="btn-toolbar">
+                    <div class="pr-4">
+                        <button class="btn btn-secondary btn-md" (click) = "drawRectangle()">
+                            Rectangle
+                         </button>
+                    </div>
+                    <div class="px-4">
+                        <button class="btn btn-secondary btn-md">
+                            Polygon
+                         </button>
+                    </div>
+                    
+                </div>
+
+                <div *ngIf = "showCreateButton" class="py-4">
+                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click) = "createHistogram()">
+                        Create Histogram
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

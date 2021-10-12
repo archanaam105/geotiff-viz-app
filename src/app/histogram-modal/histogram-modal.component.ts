@@ -53,13 +53,9 @@ export class HistogramModalComponent implements OnInit {
       .enter().append("rect")
       .style("fill", "steelblue")
       .attr("x", (r: any) => {
-        console.log(r.elevation)
-        console.log(xScale(r.elevation))
         return xScale(r.elevation) as number + ((xScale.bandwidth() - barWidth)/2);
       })
       .attr("y", (r: any) => {
-        console.log(r.frequency)
-        console.log(yScale(r.frequency))
         return yScale(r.frequency)
       })
       .attr("width", barWidth)

@@ -131,7 +131,6 @@ export class MapComponent implements AfterViewInit {
   }
 
   getElevation(event: any){
-    console.log(event);
     this.markerGroup.addTo(this.map);
     const latlng = [event.latlng.lng, event.latlng.lat];
     const elevation = Math.round(geoblaze.identify(this.georasterObj, latlng) * 100) / 100;
@@ -204,15 +203,12 @@ export class MapComponent implements AfterViewInit {
     const numClasses = 5;
     const classType = 'equal-interval';
     const layer = this.histogramGroup.getLayers()[0];
-    console.log(layer);
     let result = geoblaze.histogram(this.georasterObj, layer.toGeoJSON(), { scaleType, numClasses, classType });
-    console.log(result);
     let response = [];
     
     for (const [key, val] of Object.entries(result[0])) {
       response.push({ 'elevation': key, 'frequency': val as number });
     }
-    console.log(response);
     this.mapService.histogram.next(response);
   }
 

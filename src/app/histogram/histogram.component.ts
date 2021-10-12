@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { HistogramModalComponent } from '../histogram-modal/histogram-modal.component';
+import { MapService } from '../map/map.service';
 import { HistogramService } from './histogram.service';
 
 @Component({
@@ -13,23 +14,33 @@ export class HistogramComponent implements OnInit {
   showCreateButton: boolean = false;
 
   constructor(private histogramService : HistogramService,
-    public matDialog : MatDialog) { }
+    private matDialog : MatDialog,
+    private mapService : MapService) { }
 
   ngOnInit(): void {
-    
+    this.mapService.histogram.subscribe(result => {
+      this.plotHistogram(result);
+    })
   }
 
   drawRectangle(){
-    this.histogramService.rectangle.next("start");
+    this.histogramService.geometry.next("start");
     this.showCreateButton = true;
   }
 
-  createHistogram(){
+  getHistogram(){
+    this.histogramService.createHistogram.next("create");
+   
+  }
+
+  plotHistogram(result:any){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
+    dialogConfig.height = "500px";
     dialogConfig.width = "600px";
+    dialogConfig.data = result;
     this.matDialog.open(HistogramModalComponent,dialogConfig);
   }
+
 
 }

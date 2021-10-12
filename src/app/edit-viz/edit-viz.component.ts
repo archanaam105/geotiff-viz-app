@@ -18,7 +18,7 @@ export class EditVizComponent implements OnInit {
     this.mapService.colorScale.subscribe(scale => {
       this.colorScale = scale;
       // console.log(scale);
-      let svg = d3.select('svg');
+      let svg = d3.select('svg#legend');
       svg.append("g")
         .attr("class", "legendLinear")
         .attr("transform", "translate(20,20)");

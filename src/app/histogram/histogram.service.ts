@@ -6,7 +6,9 @@ import { Subject } from 'rxjs';
 })
 export class HistogramService {
 
-  rectangle = new Subject<string>();
+  geometry = new Subject<string>();
+  createHistogram = new Subject<string>();
+  histogram = new Subject<string>();
 
   constructor() { }
 }

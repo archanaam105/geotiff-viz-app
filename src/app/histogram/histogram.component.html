@@ -1,4 +1,8 @@
 
+<div class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none font-monospace">
+    <span class="fs-5 d-none d-sm-inline"><button backbutton class="backbutton"><i class="fs-4 bi bi-arrow-left"
+                style="color:white"></i></button> Back</span>
+</div>
 <div class="item-wrapper one">
     <div class="item">
         <div class="item-inner">
@@ -21,7 +25,7 @@
                 </div>
 
                 <div *ngIf = "showCreateButton" class="py-4">
-                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click) = "createHistogram()">
+                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click) = "getHistogram()">
                         Create Histogram
                     </button>
                 </div>

@@ -1,3 +1,7 @@
+<div class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none font-monospace">
+    <span class="fs-5 d-none d-sm-inline"><button backbutton class="backbutton"><i class="fs-4 bi bi-arrow-left"
+                style="color:white"></i></button> Back</span>
+</div>
 <div class="item-wrapper one">
     <div class="item">
         <div class="item-inner">
@@ -7,10 +11,11 @@
                     <input type="file" multiple (change)="selectFiles($event)" />
                 </div>
 
-                <div *ngIf = "progressInfo!=100" class="pb-4">
-                    <button class="btn btn-secondary btn-sm" [hidden]="!selectedFiles" (click)="uploadFiles(); clicked=true" [disabled] = "clicked" >
+                <div *ngIf="progressInfo!=100" class="pb-4">
+                    <button class="btn btn-secondary btn-sm" [hidden]="!selectedFiles"
+                        (click)="uploadFiles(); clicked=true" [disabled]="clicked">
                         Upload
-                     </button>
+                    </button>
                 </div>
 
                 <div *ngIf="progressInfo>0" class="py-4">
@@ -24,7 +29,8 @@
                 </div>
 
                 <div *ngIf="showLoadFileBtn">
-                    <button class="btn btn-secondary btn-lg" [ngStyle] = "{width:'100%'}" (click)="loadGeotiff()" routerLink="/editViz">
+                    <button class="btn btn-secondary btn-lg" [ngStyle]="{width:'100%'}" (click)="loadGeotiff()"
+                        routerLink="/editViz">
                         Load Geotiff
                     </button>
                 </div>

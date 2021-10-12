@@ -50,7 +50,7 @@ export class UploadGeotiffComponent {
      }
      this.lambdaService.invokeLambda(this.lambdaName, request).then(res=>{
        if(res.StatusCode===200){  
-           //this.tiffUrl = JSON.parse(JSON.stringify(res.Payload)).replaceAll('"',"");
+           this.tiffUrl = JSON.parse(JSON.stringify(res.Payload)).replaceAll('"',"");
            this.showLoadFileBtn = true;
        }else{
          // throw error

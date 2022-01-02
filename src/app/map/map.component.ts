@@ -43,6 +43,7 @@ export class MapComponent implements AfterViewInit {
     draw: false
   }
   rectangleDrawer: any;
+  polygonDrawer: any;
   currentRoute:any = "";
 
   constructor(private uploadService: UploadGeotiffService,
@@ -68,7 +69,12 @@ export class MapComponent implements AfterViewInit {
     })
     this.histogramService.geometry.subscribe(geo => {
       this.map.removeEventListener("click");
-      this.startDrawRectangle();
+      if(geo==='rectangle'){
+        this.startDrawRectangle();
+      }else{
+        this.startDrawPolygon();
+      }
+      
     })
     this.histogramService.createHistogram.subscribe(status => {
       this.getHistogram();
@@ -195,10 +201,23 @@ export class MapComponent implements AfterViewInit {
     this.map.on(L.Draw.Event.CREATED, (e: any) => {
       this.rectangleDrawer.disable();
       e.layer.addTo(this.histogramGroup);
+      
+    })
+  }
+
+  startDrawPolygon() {
+    this.histogramGroup.clearLayers();
+    this.histogramGroup.addTo(this.map);
+    this.polygonDrawer = new L.Draw.Polygon(this.map, this.drawOptions.draw.rectangle);
+    this.polygonDrawer.enable();
+    this.map.on(L.Draw.Event.CREATED, (e: any) => {
+      this.polygonDrawer.disable();
+      e.layer.addTo(this.histogramGroup);
     })
   }
 
   getHistogram() {
+    console.log("inside gethistogram")
     const scaleType = 'ratio';
     const numClasses = 5;
     const classType = 'equal-interval';

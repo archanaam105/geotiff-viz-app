@@ -8,13 +8,13 @@ import { Subject } from "rxjs";
 })
 export class UploadGeotiffService {
 
+    geotiffUrl = new Subject<String>();
+    colorscale = new Subject();
+
     bucketName: string = "geotiff-files-bucket";
     bucketRegion: string = "eu-west-2";
     identityPoolId: string = "eu-west-2:ecff2e4f-735b-4113-8e91-7884c77fccc5";
     folder: string = "upload/";
-    geotiffUrl = new Subject<String>();
-    colorscale = new Subject();
-
     uploadFile(file: File){
         AWS.config.region = this.bucketRegion;
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({

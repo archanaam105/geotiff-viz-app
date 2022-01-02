@@ -23,8 +23,18 @@ export class HistogramComponent implements OnInit {
     })
   }
 
+  draw(shape:string){
+    this.histogramService.geometry.next(shape);
+    this.showCreateButton = true;
+  }
+
   drawRectangle(){
-    this.histogramService.geometry.next("start");
+    this.histogramService.geometry.next("rectangle");
+    this.showCreateButton = true;
+  }
+
+  drawPolygon(){
+    this.histogramService.geometry.next("polygon");
     this.showCreateButton = true;
   }
 

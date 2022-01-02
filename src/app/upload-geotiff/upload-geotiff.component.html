@@ -11,6 +11,8 @@
                     <input type="file" multiple (change)="selectFiles($event)" />
                 </div>
 
+                <div *ngIf ="!isValidFormat" [ngStyle]="{'color':'red'}">Only .tif file format is supported</div>
+
                 <div *ngIf="progressInfo!=100" class="pb-4">
                     <button class="btn btn-secondary btn-sm" [hidden]="!selectedFiles"
                         (click)="uploadFiles(); clicked=true" [disabled]="clicked">
